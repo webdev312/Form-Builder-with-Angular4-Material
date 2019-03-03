@@ -1,0 +1,114 @@
+<div class="mainpage" layout="column" ng-mouseup="onDrop($event)" ng-mousemove="onDrag($event)">
+    <div layout = "row" layout-align="end center" class="md-toolbar">
+        <div></div>
+        <div>
+            <md-button ng-click="onBack()" class="md-close md-raised md-primary md-icon-button">
+                <span><i class="material-icons">clear</i></span>
+            </md-button>
+            <md-button ng-click="onNext()" class="md-raised md-primary md-icon-button">
+                <span><i class="material-icons">check</i></span>
+            </md-button>
+        </div>
+        <div flex="5"></div>        
+    </div>
+    <div layout = "row">
+        <div class="md-edit-page">
+        </div>
+        <div class="md-select-overlap" id="md-select-overlap">
+            <div ng-bind-html="mPan.innerHTML"></div>
+        </div>
+        <div flex="5"></div>
+        <div class="md-page2" flex="40" id="md-collectbox" ng-mousedown="onMouseDownToDelete($event)">
+            <div class="md-page2-sections" data-ng-bind-html="lPan.innerHTML" compile>
+            </div>
+            <label class="md-total-score">Total Score {{lPan.Score.total}}</label>
+            <div layout="row">
+                <div flex></div>
+                <md-button class="md-raised md-primary md-total-btn">submit</md-button>
+            </div> 
+        </div>
+        <div flex="5"></div>
+        <div class="md-page1" flex="40">
+            <div ng-mousedown="onMouseDown(0, $event)">
+                <div class="md-block-title">Add Rating</div>
+                <div class="block0" dirblock0>
+                    <div class="md-subtitle" id="md-subtitle">What is the quality of the publications?</div>
+                    <div layout="row" class="md-ranking">
+                        <div layout="row" class="md-rating">
+                            <i class="material-icons">grade</i>
+                            <i class="material-icons">grade</i>
+                            <i class="material-icons">grade</i>
+                            <i class="material-icons">grade</i>
+                            <i class="material-icons">grade</i>
+                        </div>
+                        <div flex></div>
+                        <div class="md-rating-point" id="md-rating-point">16/20</div>
+                    </div>
+                    <div layout="row" class="md-ranking-over" id="md-ranking-over">
+                        <div layout="row" class="md-rating-over">
+                            <i class="material-icons">grade</i>
+                            <i class="material-icons">grade</i>
+                            <i class="material-icons">grade</i>
+                            <i class="material-icons">grade</i>
+                            <i class="material-icons">grade</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-mousedown="onMouseDown(1, $event)">
+                <div class="md-block-title">Add Block</div>
+                <div class="block1" dirblock1>
+                    <div class="md-dot-area">
+                        <div class="md-dot-area-title" id="md-dot-area-title">Proof of achievements</div>
+                        <div class="md-dot-area-main">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-mousedown="onMouseDown(2, $event)">
+                <div class="md-block-title">Add Radiobox</div>
+                <div class="block2" dirblock2>
+                    <div layout="row">
+                        <div flex="66">
+                            <div class="md-subtitle" id="md-subtitle">Do you consider his/her experience pertinent for the program?</div>
+                        </div>
+                        <div flex></div>
+                        <div class="md-right-area">
+                            <md-radio-group ng-model="rPan.radioVal">
+                                <md-radio-button value="Yes" class="md-primary grey">{{rPan.Option1}}</md-radio-button>
+                                <md-radio-button value="No" class="md-primary grey">{{rPan.Option2}}</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-mousedown="onMouseDown(3, $event)">
+                <div class="md-block-title">Add Text Field</div>
+                <div class="block3" dirblock3>
+                    <md-input-container class="md-block md-input-group" flex-gt-xs>
+                        <label class="md-subtitle" id="md-subtitle">Tibetan Score Text evaluation</label>
+                        <input class="md-50-input" ng-model="rPan.textField" type="text" placeholder="{{rPan.textFieldPlace}}" readonly>
+                    </md-input-container>
+                </div>
+            </div>
+
+            <div ng-mousedown="onMouseDown(4, $event)">
+                <div class="md-block-title">Add Text Area</div>
+                <div class="block4" layout="column" dirblock4>
+                    <md-input-container class="md-block md-input-group">
+                        <label class="md-subtitle" id="md-subtitle">Final Comment on application</label>
+                        <textarea class="md-50-text" ng-model="rPan.textArea" placeholder="{{rPan.textAreaPlace}}" readonly></textarea>        
+                    </md-input-container>
+                    <div layout="row" class="md-text-cnt">
+                        <div flex></div> 
+                        <label class="md-raised md-primary" id="md-maxlen">78 / 500</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

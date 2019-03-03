@@ -1,0 +1,146 @@
+<md-card class="card-info">
+  <md-card-header>
+    <md-card-header-text layout="row">
+      <div layout="column">
+        <span class="md-body-2">Budget</span>
+        <span>Total: {{$ctrl.budget.total_lines | currency: $ctrl.budget.currency_symbol}} - External Contribuition: {{$ctrl.budget.total_contribution | currency:  $ctrl.budget.currency_symbol}} - {{$ctrl.df.settings.organization_name}} Total: {{$ctrl.budget.total | currency: $ctrl.budget.total_contribuition}}</span>
+      </div>
+      <div flex layout="row" layout-align='end start' ng-if="!($ctrl.readonly)">
+        <md-button ng-click="$ctrl.newActivity($event)" class="md-icon-button md-mini md-raised"><md-icon>note_add</md-icon></md-button>
+      </div>
+    </md-card-header-text>
+  </md-card-header>
+  <md-card-content>
+    <div ng-repeat="a in $ctrl.budget.budget_activities" layout="column">
+      <div layout="row">
+        <div flex><strong>{{a.year}} - {{a.title}}: </strong><span>{{ a.description }}</span></div>
+        <div flex="20" layout="row" layout-align='end start' ng-if="!($ctrl.readonly)">
+          <md-button ng-if="a.budget_components.length == 0" ng-click="$ctrl.deleteBA($event, a)" class="md-icon-button md-mini md-raised"><md-icon>delete_sweep</md-icon></md-button>
+          <md-button ng-if="$ctrl.selected_bc[a.id].length != 0" ng-click="$ctrl.deleteSelectedBC($event, a)" class="md-icon-button md-mini md-raised"><md-icon>delete</md-icon></md-button>
+          <md-button ng-click="$ctrl.newComponent($event, a)" class="md-icon-button md-mini md-raised"><md-icon>add</md-icon></md-button>
+        </div>
+      </div>
+
+      <md-table-container>
+        <table md-table md-row-select multiple ng-model="$ctrl.selected_bc[a.id]" md-progress="$ctrl.promise_bc">
+          <thead md-head>
+            <tr md-row>
+              <th md-column>Category</th>
+              <th md-column><span>Description</span></th>
+              <th md-column md-numeric>Cost x Unit</th>
+              <th md-column md-numeric>Units</th>
+              <th md-column md-numeric>Total</th>
+              <th md-column md-numeric>External Contribution</th>
+              <th md-column md-numeric>{{$ctrl.df.settings.organization_name}} Total</th>
+            </tr>
+          </thead>
+          <tbody md-body>
+            <tr md-row md-select="c" md-select-id="ud" md-auto-select ng-repeat="c in a.budget_components" ng-click="$ctrl.editComponent(c, $event)">
+              <td md-cell>{{ c.budget_category.name }}</td>
+              <td md-cell>{{ c.description}}</td>
+              <td md-cell>{{ c.cost_per_unit | currency}}</td>
+              <td md-cell>{{ c.num_of_unit}}</td>
+              <td md-cell>{{ (c.num_of_unit * c.cost_per_unit) | currency}}</td>
+              <td md-cell>{{ c.local_contribution | currency}}</td>
+              <td md-cell>{{ ((c.num_of_unit * c.cost_per_unit) - c.local_contribution) | currency}}</td>
+            </tr>
+            <tr md-row>
+              <td md-cell><strong>Totals</strong></td>
+              <td md-cell></td>
+              <td md-cell></td>
+              <td md-cell></td>
+              <td md-cell md-numeric><strong>{{ a.total_line | currency}}</strong></td>
+              <td md-cell md-numeric><strong>{{ a.total_contribuition | currency}}</strong></td>
+              <td md-cell md-numeric><strong>{{ a.total_line - a.total_contribuition | currency}}</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </md-table-container>
+    </div>
+  </md-card-content>
+</md-card>
+
+<div style="visibility: hidden">
+  <div class="md-dialog-container md-dialog-container-ba" id="editBudgetComponent">
+    <md-dialog layout-padding>
+    <div style="min-height: 60px;" layout="row" layout-align="start">
+     <h2 flex>Budget Component</h2>
+     <div flex layout="row" layout-align='end start'>
+       <md-button ng-click="$ctrl.dialog.close()" class="md-icon-button md-mini md-raised"><md-icon>done</md-icon></md-button>
+     </div>
+    </div>
+    <p>
+      <form name="BCForm">
+        <md-input-container class="md-block">
+         <label>Description</label>
+         <input ng-model="$ctrl.editingBC.description">
+        </md-input-container>
+        <md-input-container class="md-block">
+         <label>Category</label>
+         <md-select ng-model="$ctrl.editingBC.budget_category_id">
+           <md-option ng-repeat="category in $ctrl.df.budget_categories" value="{{category.id}}">{{category.name}}</md-option>
+         </md-select>
+        </md-input-container>
+        <md-input-container class="md-block">
+         <label>Cost per unit</label>
+         <input type="number" ng-model="$ctrl.editingBC.cost_per_unit">
+        </md-input-container>
+        <md-input-container class="md-block">
+         <label>number of units</label>
+         <input type="number" ng-model="$ctrl.editingBC.num_of_unit">
+        </md-input-container>
+        <md-input-container class="md-block">
+         <label>Unit</label>
+         <md-select ng-model="$ctrl.editingBC.unit">
+           <md-option ng-repeat="unit in $ctrl.units" value="{{unit}}">{{unit}}</md-option>
+         </md-select>
+        </md-input-container>
+        <md-input-container class="md-block">
+         <label>Local Contribution</label>
+         <input type="number" ng-model="$ctrl.editingBC.local_contribution">
+        </md-input-container>
+      </form>
+    </p>
+   </md-dialog>
+ </div>
+
+
+
+<div style="visibility: hidden">
+  <div class="md-dialog-container md-dialog-container-ba" id="editBudgetActivity">
+    <md-dialog layout-padding>
+    <div style="min-height: 60px;" layout="row" layout-align="start">
+     <h2 flex>Budget Activity</h2>
+     <div flex layout="row" layout-align='end start'>
+       <md-button ng-click="$ctrl.saveActivity()" class="md-icon-button md-mini md-raised"><md-icon>done</md-icon></md-button>
+     </div>
+    </div>
+    <p>
+      <form name="BAForm">
+        <md-input-container class="md-block">
+          <label>Year</label>
+          <input type='number' ng-model="$ctrl.editingBA.year" name="year">
+          <div ng-messages="BAForm.year.$error" role="alert" multiple>
+            <div ng-message="required" class="my-message">You must supply a year.</div>
+          </div>
+        </md-input-container>
+        <md-input-container class="md-block">
+         <label>Title</label>
+         <input ng-model="$ctrl.editingBA.title">
+        </md-input-container>
+        <md-input-container class="md-block">
+         <label>Description</label>
+         <input ng-model="$ctrl.editingBA.description">
+        </md-input-container>
+        <md-input-container class="md-block">
+          <label>Start Date</label>
+          <md-datepicker ng-model="$ctrl.editingBA.start_date"></md-datepicker>
+        </md-input-container>
+        <md-input-container class="md-block">
+          <label>End Date</label>
+          <md-datepicker ng-model="$ctrl.editingBA.end_date"></md-datepicker>
+        </md-input-container>
+      </form>
+    </p>
+   </md-dialog>
+ </div>

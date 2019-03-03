@@ -1,0 +1,16 @@
+<div style="visibility: hidden">
+  <div class="md-dialog-container" id="edit_model">
+    <md-dialog layout-padding style="min-width: 500px;">
+    <div style="min-height: 60px; " layout="row" layout-align="start">
+     <h2 flex ng-transclude="header"></h2>
+     <div flex layout="row" layout-align='end start'>
+       <div ng-transclude="controls">
+         <md-button ng-click="$ctrl.dialog.close('#edit_model')" class="md-icon-button md-mini md-raised"><md-icon>done</md-icon></md-button>
+       </div>
+     </div>
+    </div>
+    <div>
+      <p ng-transclude="content"></p>
+    </div>
+   </md-dialog>
+ </div>

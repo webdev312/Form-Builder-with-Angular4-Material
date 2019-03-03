@@ -1,0 +1,23 @@
+<div class="md-edit0" id="md-edit0">
+    <md-input-container>
+        <label>Label Field</label>
+        <input ng-model="edit0.label_field">
+    </md-input-container>
+    <md-input-container>
+        <label>Description</label>
+        <input ng-model="edit0.description">
+    </md-input-container>
+    <md-slider flex class="md-primary md-active" md-discrete ng-model="edit0.rating" step="1" min="0" max="20" aria-label="rating"></md-slider>
+    <div layout = "row" layout-align="left center">
+        <div flex></div>
+        <md-button ng-click="onDelete()" class="md-warn">
+            DELETE
+        </md-button>
+        <md-button ng-click="onClose()" class="md-close md-raised md-primary md-icon-button">
+            <span><i class="material-icons">clear</i></span>
+        </md-button>
+        <md-button ng-click="onSave({label_field : edit0.label_field, description : edit0.description, rating : edit0.rating})" class="md-raised md-primary md-icon-button">
+            <span><i class="material-icons">check</i></span>
+        </md-button>
+    </div>
+</div>

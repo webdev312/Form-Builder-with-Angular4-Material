@@ -1,0 +1,33 @@
+<div class="md-edit2" id="md-edit2">
+    <md-input-container>
+        <label>Label Field</label>
+        <input ng-model="edit2.label_field">
+    </md-input-container>
+    <md-input-container>
+        <label>Description</label>
+        <input ng-model="edit2.description">
+    </md-input-container>
+    <md-input-container>
+        <label>Yes</label>
+        <input ng-model="edit2.option1">
+    </md-input-container>
+    <md-input-container>
+        <label>No</label>
+        <input ng-model="edit2.option2">
+    </md-input-container>
+    <md-checkbox class="md-primary" ng-model="edit2.required">
+        Required
+    </md-checkbox>
+    <div layout = "row" layout-align="left center">
+        <div flex></div>
+        <md-button ng-click="onDelete()" class="md-warn">
+            DELETE
+        </md-button>
+        <md-button ng-click="onClose()" class="md-close md-raised md-primary md-icon-button">
+            <span><i class="material-icons">clear</i></span>
+        </md-button>
+        <md-button ng-click="onSave({label_field : edit2.label_field, description : edit2.description, option1 : edit2.option1, option2 : edit2.option2, required : edit2.required})" class="md-raised md-primary md-icon-button">
+            <span><i class="material-icons">check</i></span>
+        </md-button>
+    </div>
+</div>

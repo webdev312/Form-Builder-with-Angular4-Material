@@ -1,0 +1,26 @@
+<div class="mainpage" layout="column">
+    <div layout = "row" layout-align="end center" class="md-toolbar">
+        <div></div>
+        <div flex="5"></div>        
+    </div>
+    <div layout = "row">
+        <div class="md-edit-page">
+        </div>
+        <div class="md-select-overlap" id="md-select-overlap">
+        </div>
+        <div flex="5"></div>
+        <div class="md-page2" flex="40" id="md-collectbox">
+        </div>
+        <div flex="5"></div>
+        <div class="md-page1" flex="40">
+            <div data-ng-bind-html="review.innerHTML" compile>
+            </div>
+            <label class="md-total-score">Total Score {{Pan.Score.total}}</label>
+            <div layout="row">
+                <div flex></div>
+                <md-button class="md-raised md-primary md-total-btn" ng-click="onSubmit()">submit</md-button>
+            </div> 
+        </div>
+        <!-- <div style="width : 26px; height : 26px; position : absolute; left : 782px; top : 178px; border : 1px solid black;"></div> -->
+    </div>
+</div>

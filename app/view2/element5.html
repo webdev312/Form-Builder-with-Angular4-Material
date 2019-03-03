@@ -1,0 +1,10 @@
+<div class="block4" layout="column">
+    <md-input-container class="md-block md-input-group">
+        <label class="md-subtitle" id="md-subtitle">{{TextAreaTitle}}</label>
+        <textarea class="md-50-text" id="TextAreaID" ng-model="TextAreaModel" placeholder="{{TextAreaPlaceholder}}" ng-change="onTextAreaChange(index, subindex, TextAreaModel)" maxlength="{{TextAreaMaxLength}}"></textarea>        
+    </md-input-container>
+    <div layout="row" class="md-text-cnt">
+        <div flex></div> 
+        <label class="md-raised md-primary" id="md-maxlen">{{TextAreaLen}}</label>
+    </div>
+</div>

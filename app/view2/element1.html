@@ -1,0 +1,23 @@
+<div class="md-lblock block0">
+    <div class="md-subtitle" id="md-subtitle">{{RatingTitle}}</div>
+    <div layout="row" class="md-ranking">
+        <div layout="row" class="md-rating" ng-mousemove="onRatingOver($event, index, subindex)" ng-click="onRatingSubmit($event, index, subindex)" ng-mouseleave="onRatingLeave(index, subindex)">
+            <i class="material-icons">grade</i>
+            <i class="material-icons">grade</i>
+            <i class="material-icons">grade</i>
+            <i class="material-icons">grade</i>
+            <i class="material-icons">grade</i>
+        </div>
+        <div flex></div>
+        <div class="md-rating-point" id="md-rating-point">{{RatingPoint}}</div>
+    </div>
+    <div layout="row" class="md-ranking-over" id="id-ranking-over">
+        <div layout="row" class="md-rating-over" id="id-rating-over" ng-mousemove="onRatingOver($event, index, subindex)" ng-click="onRatingSubmit($event, index, subindex)" ng-mouseleave="onRatingLeave(index, subindex)">
+            <i class="material-icons">grade</i>
+            <i class="material-icons">grade</i>
+            <i class="material-icons">grade</i>
+            <i class="material-icons">grade</i>
+            <i class="material-icons">grade</i>
+        </div>
+    </div>
+</div>

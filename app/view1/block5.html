@@ -1,0 +1,33 @@
+<div class="md-edit4" id="md-edit4">
+    <md-input-container>
+        <label>Label Field</label>
+        <input ng-model="edit4.label_field">
+    </md-input-container>
+    <md-input-container>
+        <label>Description</label>
+        <input ng-model="edit4.description">
+    </md-input-container>
+    <md-input-container>
+        <label>Placeholder</label>
+        <input ng-model="edit4.placeholder">
+    </md-input-container>
+    <md-input-container>
+        <label>Max Characters</label>
+        <input ng-model="edit4.max_character">
+    </md-input-container>
+    <md-checkbox ng-model="edit4.required" class="md-primary">
+        Required
+    </md-checkbox>
+    <div layout = "row" layout-align="left center">
+        <div flex></div>
+        <md-button ng-click="onDelete()" class="md-warn">
+            DELETE
+        </md-button>
+        <md-button ng-click="onClose()" class="md-close md-raised md-primary md-icon-button">
+            <span><i class="material-icons">clear</i></span>
+        </md-button>
+        <md-button ng-click="onSave({label_field : edit4.label_field, description : edit4.description, placeholder : edit4.placeholder, max_character : edit4.max_character, required : edit4.required})" class="md-raised md-primary md-icon-button">
+            <span><i class="material-icons">check</i></span>
+        </md-button>
+    </div>
+</div>

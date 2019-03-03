@@ -1,0 +1,18 @@
+<div class="md-edit1" id="md-edit1">
+    <md-input-container>
+        <label>Label Field</label>
+        <input ng-model="edit1.label_field">
+    </md-input-container>
+    <div layout = "row" layout-align="left center">
+        <div flex></div>
+        <md-button ng-click="onDelete()" class="md-warn">
+            DELETE
+        </md-button>
+        <md-button ng-click="onClose()" class="md-close md-raised md-primary md-icon-button">
+            <span><i class="material-icons">clear</i></span>
+        </md-button>
+        <md-button ng-click="onSave({label_field : edit1.label_field})" class="md-raised md-primary md-icon-button">
+            <span><i class="material-icons">check</i></span>
+        </md-button>
+    </div>
+</div>

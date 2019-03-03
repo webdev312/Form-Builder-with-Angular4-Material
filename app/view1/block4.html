@@ -1,0 +1,37 @@
+<div class="md-edit3" id="md-edit3">
+    <md-input-container>
+        <label>Label Field</label>
+        <input ng-model="edit3.label_field">
+    </md-input-container>
+    <md-input-container>
+        <label>Description</label>
+        <input ng-model="edit3.description" type="text" id="specialInput"></input>
+    </md-input-container>
+    <md-input-container>
+        <label>Placeholder</label>
+        <input ng-model="edit3.placeholder">
+    </md-input-container>
+    <md-input-container flex = "50">
+        <label>Validation</label>
+        <md-select ng-model="edit3.validation" placeholder="Validation" ng-change="onChangedType()">
+            <md-option value="text">Text</md-option>
+            <md-option value="number">Number</md-option>
+            <md-option value="email">Email</md-option> 
+        </md-select>
+    </md-input-container>
+    <md-checkbox class="md-primary" ng-model="edit3.required">
+        Required
+    </md-checkbox>
+    <div layout = "row" layout-align="left center">
+        <div flex></div>
+        <md-button ng-click="onDelete()" class="md-warn">
+            DELETE
+        </md-button>
+        <md-button ng-click="onClose()" class="md-close md-raised md-primary md-icon-button">
+            <span><i class="material-icons">clear</i></span>
+        </md-button>
+        <md-button ng-click="onSave({label_field : edit3.label_field, description : edit3.description, placeholder : edit3.placeholder, validation : edit3.validation, required : edit3.required})" class="md-raised md-primary md-icon-button">
+            <span><i class="material-icons">check</i></span>
+        </md-button>
+    </div>
+</div>

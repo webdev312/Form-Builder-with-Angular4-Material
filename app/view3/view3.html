@@ -1,0 +1,64 @@
+<div class="mainpage" layout="column">
+    <div layout = "row" layout-align="end center" class="md-toolbar">
+        <div></div>
+        <div flex="5"></div>        
+    </div>
+    <div layout = "row">
+        <div class="md-edit-page">
+        </div>
+        <div class="md-select-overlap" id="md-select-overlap">
+        </div>
+        <div flex="5"></div>
+        <div class="md-page2" flex="40" id="md-collectbox">
+            <div layout="row" class="md-table-header">
+                <div flex="15">
+                    <md-checkbox></md-checkbox>
+                </div>
+                <div ng-repeat="header in tableHeaders" flex="{{header.Width}}" class="md-table-title">{{header.Title}}</div>
+            </div>
+            <div layout="column" ng-repeat="everyObj in tableInfo">
+                <div layout="row" class="md-table-body" ng-click="onSelect(everyObj.Index)" id="idTableRow{{everyObj.Index}}">
+                    <div flex="15">
+                        <md-checkbox></md-checkbox>
+                    </div>
+                    <div flex="15" class="md-table-text"><b>{{everyObj.Code}}</b></div>
+                    <div flex="40" class="md-table-text"><b>{{everyObj.Name}}</b></div>
+                    <div flex="15" class="md-table-text"><b>{{everyObj.Score}}</b></div>
+                    <div flex="15"><span><i class='material-icons md-icon{{everyObj.Result}}'>{{everyObj.Result}}</i></span></div>
+                </div>
+            </div>
+        </div>
+        <div flex="5"></div>
+        <div class="md-page1" flex="40">
+            <div>
+                <md-autocomplete 
+                    md-selected-item="selectedItem"
+                    md-search-text="searchText"
+                    md-items="item in query(searchText)"
+                    placeholder="Add reviewers"
+                    ng-keypress="onAutoCompleteKeyPress($event)">
+                    <md-item-template>
+                        <span md-highlight-text="searchText">{{item}}</span>
+                    </md-item-template>
+                </md-autocomplete>
+            </div>
+            <div data-ng-bind-html="review.innerBtnHTML" class="md-btnarray" compile layout="row">
+            </div>
+            <div data-ng-bind-html="review.innerHTML" compile>
+            </div>
+            <div layout="row">
+                <div flex></div>
+                <div class="md-lstaverage"><b>Average Score {{ngAveragePoint}}</b></div>
+            </div> 
+            <div layout="row">
+                <div flex></div>
+                <div class="md-lstaverage"><b>Ranking 17</b></div>
+            </div> 
+            <div layout="row">
+                <div flex></div>
+                <md-button class="md-raised md-primary md-total-btn md-decline" ng-click="onDecline()">Decline</md-button>
+                <md-button class="md-raised md-primary md-total-btn" ng-click="onApprove()">Approve</md-button>
+            </div> 
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<md-button ng-click="$ctrl.save()" class="md-fab md-primary md-fab-bottom-right"><md-icon>done</md-icon></md-button>
+
+<md-card layout-fill layout="row" class="no-input-padding">
+  <md-card flex="33" style="overflow: scroll;" layout-fill>
+    <div>
+      <h3>Columns</h3>
+      <ul style="padding: 5px;" >
+        <div ng-class-odd="odd" ng-repeat="item in $ctrl.leftList">
+          <md-card dnd-draggable="item"
+            dnd-callback="$ctrl.onDrop($ctrl.leftList, $index, targetList, targetIndex)"
+              dnd-effect-allowed="copy">
+            <md-card-header class="md-header-mini bottom-border-pixel">
+              <md-card-header-text layout="row" layout-align="start center">
+                <span flex=70 class="md-subhead">{{item.kind}}</span>
+              </md-card-header-text>
+            </md-card-header>
+            <md-card-content>
+              <div ng-include="'staff/forms/_switch.html'" ng-init="parent = item; item = item"></div>
+            </md-card-content>
+          </md-card>
+        </div>
+      </ul>
+
+    </div>
+  </md-card>
+  <md-card flex style="overflow: scroll;" layout-fill>
+    <h3>View</h3>
+    <div>
+      <ul dnd-list dnd-drop="callback({targetList: $ctrl.list, targetIndex: index})" style="padding: 5px; min-height: 400px" class="view_element_list">
+        <div class="dndPlaceholder"></div>
+        <div ng-class-odd="odd" ng-repeat="item in $ctrl.list track by $index" dnd-draggable="null" dnd-callback="$ctrl.onDrop($ctrl.list, $index, targetList, targetIndex)">
+          <tr-block list="list" item="item"></tr-block>
+        </div>
+      </ul>
+    </div>
+  </md-card>
+  <md-card flex="33" layout-fill style="overflow: scroll;">
+    <div class="toolbox box box-grey box-padding">
+      <h3>New Elements</h3>
+      <ul style="padding: 5px;">
+        <md-card ng-repeat="item in $ctrl.rightList"
+            dnd-draggable="item"
+            dnd-callback="$ctrl.onDrop($ctrl.rightList, $index, targetList, targetIndex)"
+            dnd-effect-allowed="copy">
+          <md-card-header class="md-header-mini bottom-border-pixel">
+            <md-card-header-text layout="row" layout-align="start center">
+              <span flex=70 class="md-subhead">{{item.kind}}</span>
+            </md-card-header-text>
+          </md-card-header>
+          <md-card-content>
+            <div ng-include="'staff/forms/_switch.html'" ng-init="parent = item; item = item"></div>
+          </md-card-content>
+        </div>
+      </ul>
+    </div>
+  </md-card>
+</md-card>

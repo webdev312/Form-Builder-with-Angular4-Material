@@ -1,0 +1,368 @@
+html, body {
+  font-family: 'Roboto', sans-serif;
+  font-size:14px;
+  height:100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Toolbar area */
+
+.menu {
+  background-color: transparent;
+  border: none;
+  height: 38px;
+  margin: 16px;
+  width: 36px;
+}
+
+.md-small{
+  min-width: 1%;
+  min-height: 1%;
+  height: 24px;
+  width: 24px;
+  padding: 0px;
+}
+
+.bottom-border-pixel{
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgba(0,0,0,0.1);
+}
+
+.md-header-mini{
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-right: 0px;
+}
+
+.view_element_list md-card{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.view_element_list{
+  min-height: 20px;
+}
+
+.item .grey{
+  color: rgba(0,0,0,0.3);
+}
+
+.grey{
+  color: rgba(0,0,0,0.3);
+}
+
+md-toolbar h1 {
+  margin: auto;
+}
+
+/* Sidenav area */
+
+md-list .md-button {
+  color: inherit;
+  font-weight: 500;
+  text-align: left;
+  width: 100%;
+}
+  md-list .md-button.selected {
+    color: #03a9f4;
+  }
+
+  md-sidenav  md-list {
+    padding: 0px 0px 8px 0px;
+  }
+ md-sidenav.md-locked-open {
+    width: 150px;
+  }
+
+/* Primary content area */
+#content  {
+  position: fixed;
+  bottom: 0px;
+  top: 50px;
+  left: 0px;
+  right: 0px;
+}
+
+#content.content-container{
+  position: fixed;
+  bottom: 10px;
+  left: 5px;
+  right: 5px;
+  top: 60px;
+}
+
+.dashboard{
+  height: 100%;
+}
+
+.header_submissions{
+  padding: 15px 15px;
+  font-weight: bold;
+}
+
+.grantee_subheader_submissions{
+  margin-top: 25px;
+  margin-bottom: 10px;
+  color: darkgrey;
+}
+
+.grantee_subheader_submissions div{
+  text-align: center;
+}
+
+.list_submissions{
+  border-top: 1px solid #e7e8ea;
+}
+
+*[ui-sref]{
+  cursor: pointer;
+}
+.list_submissions div{
+
+}
+
+.list_submissions.odd{
+  background-color: #f9f9f9;
+}
+
+#content .md-button.contact {
+  background-color: transparent;
+  border: none;
+  width: 48px;
+  height: 48px;
+  margin: 8px auto 16px 0;
+  position: absolute;
+  top: 10px;
+  right: 40px;
+}
+
+#content md-icon.avatar {
+  margin-top: 10px;
+}
+
+#content .md-button.contact > md-icon {
+  fill:black;
+  width:36px;
+  height:36px;
+}
+
+md-button.menuBtn > md-icon {
+  fill:white;
+  width:24px;
+  height:24px;
+}
+
+#content .md-button.contact:active > md-icon {
+  background-color: #dadada;
+  border-radius: 75%;
+  padding:4px;
+  transition: all 100ms ease-out 30ms;
+}
+
+#content img {
+  display: block;
+  height: auto;
+  max-width: 500px;
+}
+
+/* Utils */
+
+.content-wrapper {
+  position: relative;
+}
+
+/* Typography support coming in 0.8.0 */
+
+md-toolbar h1 {
+  font-size: 1.250em;
+  font-weight: 400;
+}
+
+.avatar {
+  position: relative;
+  width: 128px;
+  height: 128px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0px;
+  vertical-align: middle;
+  zoom:0.70;
+  transform: translateZ(0);
+  -webkit-transform: scale(0.70);
+  -moz-transform:scale(0.70);
+}
+
+
+md-bottom-sheet  md-icon {
+  margin-right:20px;
+}
+
+span.name {
+  font-weight: bold;
+  font-size:1.1em;
+  padding-left:5px;
+}
+
+.reports-container{
+  overflow: scroll;
+  height: 90%;
+}
+
+.plus_icon{
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+}
+
+.plus_icon md-icon{
+  margin-top: 15px;
+  font-size: 19pt;
+}
+
+.left-menu-selected{
+  background-color: rgb(236,239,241);
+}
+
+.left-menu-selected span{
+  color: rgb(55,101,120);
+}
+.submissions-item-list a{
+  margin: 0;
+}
+
+.submissions-item-list{
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: #ddd;
+}
+
+.submissions-item-list.active{
+  border-right: 0;
+}
+
+.card-info{
+
+}
+
+.card-info md-card-header{
+  border-bottom-width: 1px;
+  border-bottom-color: #ddd;
+  border-bottom-style: solid;
+}
+
+.list-odd{
+  background-color: rgb(236,239,241);
+}
+
+.list-even{
+  background-color: white;
+}
+
+.app-items{
+  padding: 0;
+  border-bottom: grey 1px solid;
+}
+
+.border-bottom-none{
+  border-bottom-color: white;
+}
+
+.small-caps{
+  font-variant: small-caps;
+  font-weight: lighter;
+}
+
+.icon-wrap{
+  height: 10px;
+  margin: 0;
+  padding: 0;
+  width: 10px;
+}
+.spacing-40{
+  height: 45px;
+}
+
+.no-child-padding md-list-item{
+  padding: 0;
+}
+
+.no-child-padding md-input-container{
+  margin: 0;
+}
+
+.no-child-padding md-input-container .md-errors-spacer:empty { display: none }
+.no-input-padding md-input-container .md-errors-spacer:empty { display: none }
+.no-input-padding md-input-container{
+  margin-bottom: 0;
+}
+
+.md-dialog-container-ba md-dialog{
+  min-width: 800px;
+}
+
+md-toast.md-success-toast-theme {
+  .md-toast-content {
+    color: darkgreen;
+  }
+}
+
+md-toast.md-error-toast-theme {
+  .md-toast-content {
+    color: red;
+  }
+}
+
+.md-datepicker-input-mask{
+  overflow: hidden;
+}
+
+.spinner{
+  top: 40%;
+  left: 50%;
+}
+
+.review-application .md-select-value, .review-application input, .review-application textarea{
+  color: black !important;
+}
+
+/*IMPORTED FROM NEW APPLICATION*/
+main {
+  padding: 1em;
+  margin-top: 10px;
+  display: block;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.8em;
+}
+
+/* PAGES*/
+.loginCard{
+  width: 400px;
+}
+
+.signupCard{
+  width: 600px;
+}
+
+.md-datepicker-input-container{
+  border-bottom: none;
+}
+
+/* TK INVALID*/
+.tk-input-invalid .md-input{
+  border-color: rgb(221,44,0);
+}
+.tk-input-invalid label{
+  color: rgb(221,44,0);
+}
+
+.dndPlaceholder{
+  min-height: 100px;
+  border: dashed 2px grey;
+}
